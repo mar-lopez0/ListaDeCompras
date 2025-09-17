@@ -1,39 +1,38 @@
-import { precio } from "seccion/seccion.js";
+import { agregarProductoSeccion } from '../seccion/seccion.js';
 
-const formulario = document.getElementById('formulario-producto');
+function formulario() {
+    const formulario = document.createElement('div');
+    formulario.className = 'formulario-producto';
 
-// Campo de texto
-const inputNombre = document.createElement('input');
-inputNombre.type = 'text';
-inputNombre.placeholder = 'Producto';
-inputNombre.id = 'nombre-producto';
+    const inputNombre = document.createElement('input');
+    inputNombre.type = 'text';
+    inputNombre.placeholder = 'Producto';
 
-// Campo de número
-const inputPrecio = document.createElement('input');
-inputPrecio.type = 'number';
-inputPrecio.placeholder = 'Q 00.00';
-inputPrecio.id = 'precio-producto';
+    const inputPrecio = document.createElement('input');
+    inputPrecio.type = 'number';
+    inputPrecio.placeholder = 'Q 00.00';
 
-// Botón
-const boton = document.createElement('button');
-boton.textContent = 'Carrito';
-boton.id = 'agregar-btn';
-boton.style.backgroundColor = 'green';
-boton.style.color = 'white';
+    const boton = document.createElement('button');
+    boton.textContent = 'Carrito';
+    boton.style.backgroundColor = 'green';
+    boton.style.color = 'white';
 
-// Evento
-boton.addEventListener('click', () => {
-    const nombre = inputNombre.value.trim();
-    const precio = parseFloat(inputPrecio.value);
+    boton.addEventListener('click', () => {
+        const nombre = inputNombre.value.trim();
+        const precio = parseFloat(inputPrecio.value);
 
-    if (nombre && !isNaN(precio)) {
-        agregarProducto(nombre, precio);
-        inputNombre.value = '';
-        inputPrecio.value = '';
-    }
-});
+        if (nombre && !isNaN(precio)) {
+            agregarProductoSeccion(nombre, precio); 
+            inputNombre.value = '';
+            inputPrecio.value = '';
+        }
+    });
 
-// Añadir al DOM
-formulario.appendChild(inputNombre);
-formulario.appendChild(inputPrecio);
-formulario.appendChild(boton);
+    formulario.appendChild(inputNombre);
+    formulario.appendChild(inputPrecio);
+    formulario.appendChild(boton);
+
+    document.body.appendChild(formulario);
+}
+
+export { formulario };

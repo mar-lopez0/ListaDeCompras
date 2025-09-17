@@ -1,8 +1,8 @@
+function header() {
+    const header = document.createElement('header');
+    header.textContent = 'Compras';
+    header.className = 'compras';
+    document.body.appendChild(header);
+}
 
-let header = document.createElement("header");
-header.textContent = "Compras";
-header.className = "Compras";
-
-
-document.body.appendChild(header);
-
+export { header };

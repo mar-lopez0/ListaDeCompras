@@ -1,15 +1,15 @@
-#formulario-producto {
+.formulario-producto {
   margin-top: 40px;
 }
 
-#formulario-producto input,
-#formulario-producto button {
+.formulario-producto input,
+.formulario-producto button {
   margin: 5px;
   padding: 10px;
   font-size: 15px;
 }
 
-#agregar-btn {
+.agregar-btn {
   border: none;
   cursor: pointer;
 }
