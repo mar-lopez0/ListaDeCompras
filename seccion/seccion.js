@@ -1,29 +1,33 @@
+import { obtenerProductos, guardarProducto, eliminarProducto } from "../control/localStorage.js";
+
 let total = 0;
 
 function seccion() {
     const seccion = document.createElement('div');
     seccion.className = 'seccion-productos';
-    seccion.id = 'seccion-productos'; // ✅ ID necesario para la descarga
+    seccion.id = 'seccion-productos';
 
     // Mostrar total
     const precioTotal = document.createElement('div');
     precioTotal.className = 'precio';
     precioTotal.textContent = 'Q 0.00';
-
-    // Guardamos referencias para actualizar
     seccion.precioTotal = precioTotal;
+    seccion.appendChild(precioTotal);
 
-    // ✅ Asegúrate de que el total esté dentro del contenedor
-    seccion.appendChild(precioTotal);      // Primero el total
-    document.body.appendChild(seccion);    // Después los productos
+    document.body.appendChild(seccion);
+
+    // ✅ Cargar productos guardados en localStorage
+    const productosGuardados = obtenerProductos();
+    productosGuardados.forEach(p => {
+        agregarProductoSeccion(p.nombre, p.precio, false); // false para no duplicar en localStorage
+    });
 
     return seccion;
 }
 
-function agregarProductoSeccion(nombre, precio) {
+function agregarProductoSeccion(nombre, precio, guardar = true) {
     const seccion = document.querySelector('.seccion-productos');
 
-    // Contenedor del producto
     const producto = document.createElement('div');
     producto.className = 'producto';
     producto.textContent = `${nombre} - Q${precio.toFixed(2)} `;
@@ -38,16 +42,21 @@ function agregarProductoSeccion(nombre, precio) {
     // Eliminar producto
     botonEliminar.addEventListener('click', () => {
         seccion.removeChild(producto);
-        total -= precio; // restamos el precio
+        total -= precio;
         const precioTotal = document.querySelector('.precio');
         precioTotal.textContent = `Q ${total.toFixed(2)}`;
+
+        // ❌ Eliminar también del localStorage
+        eliminarProducto(nombre);
     });
 
-    // Botón al producto
     producto.appendChild(botonEliminar);
-
-    // Agregamos el producto a la sección
     seccion.appendChild(producto);
+
+    // ✅ Guardar en localStorage solo si viene de agregar manual
+    if (guardar) {
+        guardarProducto({ nombre, precio });
+    }
 
     // Actualizar total
     total += precio;
@@ -55,6 +64,8 @@ function agregarProductoSeccion(nombre, precio) {
     precioTotal.textContent = `Q ${total.toFixed(2)}`;
 }
 
+export { seccion, agregarProductoSeccion };
 
-export { seccion };
-export { agregarProductoSeccion };
+
+
+seccion.id

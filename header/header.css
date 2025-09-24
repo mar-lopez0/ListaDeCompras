@@ -1,35 +1,62 @@
-    * {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #ffffff;
-    }
-
-    header {
-    width: 100%;
-    padding: 28px 0;
-    text-align: center;
-    border-bottom: 1px solid #e6e6e6;
-    background-color: rgb(255, 215, 221);
-    }
-
-    .Compras {
-        font: 1.4em sans-serif;
-        color: gray ;
-        background-color:gray;
-        margin-left: -5rem;
-    }
-    .btn-descargar {
-    margin-left: 30rem;
-    padding: 5px 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+* {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #ffffff;
 }
 
-    .btn-descargar:hover {
-        background-color: #45a049;
-    }
+header {
+  width: 100%;
+  padding: 28px 0px;
+  text-align: center;
+  border-bottom: 1px solid #e6e6e6;
+  background-color: rgb(255, 215, 221);
+}
 
-    
+.Compras {
+  font: 1.4em sans-serif;
+  color: gray;
+  background-color: gray;
+  margin-left: -5rem;
+}
+
+.btn-descargar {
+  margin-left: -30rem;
+  padding: 5px 10px;    
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-descargar:hover {
+  background-color: #45a049;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 375px) {
+  header {
+    padding: 20px 10px;
+  }
+  .Compras {
+    margin-left: 0;
+    display: block;
+    text-align: center;
+  }
+  .btn-descargar {
+    margin: 10px auto 0 auto;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .Compras {
+    margin-left: 0;
+    display: inline-block;
+  }
+  .btn-descargar {
+    margin-left: 1rem;
+  }
+}

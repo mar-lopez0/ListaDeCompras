@@ -1,15 +1,101 @@
-.formulario-producto {
-  margin-top: 40px;
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
 }
 
-.formulario-producto input,
-.formulario-producto button {
-  margin: 5px;
-  padding: 10px;
-  font-size: 15px;
+/* Fondo general */
+body {
+  background: #ffffff;
+  padding: 20px;
 }
 
-.agregar-btn {
+/* Header */
+header {
+  width: 100%;
+  padding: 28px 0;
+  text-align: center;
+  border-bottom: 1px solid #e6e6e6;
+  background-color: rgb(255, 215, 221);
+}
+
+.Compras {
+  font-size: 1.4em;
+  color: gray;
+  margin-left: -5rem;
+  background: transparent; /* 👈 ya no tapa el fondo */
+}
+
+/* Botón de descargar */
+.btn-descargar {
+  margin-left: 30rem;
+  padding: 5px 10px;
+  background-color: #4CAF50;
+  color: white;
   border: none;
+  border-radius: 4px;
   cursor: pointer;
+}
+
+.btn-descargar:hover {
+  background-color: #45a049;
+}
+
+/* Lista de productos */
+.seccion-productos {
+  margin-top: 20px;
+}
+
+.producto {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  margin-bottom: 6px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #f9f9f9;
+}
+
+.producto button {
+  background: red;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.producto button:hover {
+  background: darkred;
+}
+
+/* Total */
+.precio {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+/* Responsivo */
+@media (max-width: 375px) {
+  .formulario-producto {
+    width: 100%;
+  }
+  .formulario-producto input,
+  .formulario-producto button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .formulario-producto {
+    width: 90%;
+  }
+  .formulario-producto input,
+  .formulario-producto button {
+    width: 100%;
+  }
 }
