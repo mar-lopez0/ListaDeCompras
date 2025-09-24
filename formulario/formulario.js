@@ -1,6 +1,7 @@
 import { agregarProductoSeccion } from '../seccion/seccion.js';
 
 function formulario() {
+
     const formulario = document.createElement('div');
     formulario.className = 'formulario-producto';
 
@@ -14,8 +15,8 @@ function formulario() {
 
     const boton = document.createElement('button');
     boton.textContent = 'Carrito';
-    boton.style.backgroundColor = 'green';
-    boton.style.color = 'white';
+    boton.style.backgroundColor = 'pink';
+    boton.style.color = 'black';
 
     boton.addEventListener('click', () => {
         const nombre = inputNombre.value.trim();

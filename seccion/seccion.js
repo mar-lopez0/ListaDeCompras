@@ -3,6 +3,7 @@ let total = 0;
 function seccion() {
     const seccion = document.createElement('div');
     seccion.className = 'seccion-productos';
+    seccion.id = 'seccion-productos'; // ✅ ID necesario para la descarga
 
     // Mostrar total
     const precioTotal = document.createElement('div');
@@ -12,8 +13,9 @@ function seccion() {
     // Guardamos referencias para actualizar
     seccion.precioTotal = precioTotal;
 
-    document.body.appendChild(precioTotal); // Primero el total
-    document.body.appendChild(seccion);     // Después los productos
+    // ✅ Asegúrate de que el total esté dentro del contenedor
+    seccion.appendChild(precioTotal);      // Primero el total
+    document.body.appendChild(seccion);    // Después los productos
 
     return seccion;
 }
@@ -33,7 +35,7 @@ function agregarProductoSeccion(nombre, precio) {
     botonEliminar.style.backgroundColor = 'red';
     botonEliminar.style.color = 'white';
 
-    // Evento para eliminar producto
+    // Eliminar producto
     botonEliminar.addEventListener('click', () => {
         seccion.removeChild(producto);
         total -= precio; // restamos el precio
@@ -41,7 +43,7 @@ function agregarProductoSeccion(nombre, precio) {
         precioTotal.textContent = `Q ${total.toFixed(2)}`;
     });
 
-    // Agregamos el botón al producto
+    // Botón al producto
     producto.appendChild(botonEliminar);
 
     // Agregamos el producto a la sección
@@ -53,6 +55,6 @@ function agregarProductoSeccion(nombre, precio) {
     precioTotal.textContent = `Q ${total.toFixed(2)}`;
 }
 
+
 export { seccion };
 export { agregarProductoSeccion };
-

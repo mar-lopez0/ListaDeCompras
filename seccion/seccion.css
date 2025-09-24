@@ -13,8 +13,9 @@
     .precio {
     font-size: 24px;
     font-weight: bold;
-    color: green;
+    color: black;
     margin-bottom: 15px;
+    
     }
 
     /* Contenedor de productos */
